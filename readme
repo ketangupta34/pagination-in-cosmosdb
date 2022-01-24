@@ -1,0 +1,23 @@
+# Pagination Issue in CosmosDB executable code
+
+## description
+In cosmosdb when we try to fetch data using `fetchNext()` we come across some issues. 
+
+## Structure of code
+in `src` we have `helpers` and `services`
+helper contains a cosmosDB class that utilises the @azure/cosmos to fetch data.
+services has a cases class that we utilize in our backend API structure.
+
+In cases.service.ts we have one fucntion `getCaseList()`
+
+this takes in different parameters like sort, filter,search etc. We create a sql query based on these 
+inputs and use the `queryContainerNext()` in helper to fetch the data
+
+## setup
+1. run `npm install`
+2. Import the `TestData.json` to a cosmosDB container.
+3. Add the key, url, db name and containerName to env file
+4. `npm test` run the test
+
+I have written 6 tests
+first has the problem test and rest 5 are to give an idea how we are utilizing it
